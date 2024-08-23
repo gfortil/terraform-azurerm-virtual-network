@@ -43,7 +43,7 @@ resource "azurerm_route_table" "route_table" {
   name                          = "${var.resource_group_name}-${each.key}-routetable"
   location                      = var.location
   resource_group_name           = var.resource_group_name
-  disable_bgp_route_propagation = each.value.disable_bgp_route_propagation
+  bgp_route_propagation_enabled = each.value.bgp_route_propagation_enabled
 
   dynamic "route" {
     for_each = (each.value.use_inline_routes ? each.value.routes : {})
@@ -112,7 +112,7 @@ resource "azurerm_route_table" "aks_route_table" {
   name                          = "${var.resource_group_name}-aks-${each.key}-routetable"
   location                      = var.location
   resource_group_name           = var.resource_group_name
-  disable_bgp_route_propagation = each.value.disable_bgp_route_propagation
+  bgp_route_propagation_enabled = each.value.bgp_route_propagation_enabled
 }
 
 resource "azurerm_route" "aks_route" {

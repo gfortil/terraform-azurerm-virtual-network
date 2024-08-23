@@ -83,13 +83,13 @@ variable "allow_vnet_outbound" {
 }
 
 # Subnet Options
-variable "enforce_private_link_endpoint_network_policies" {
+variable "private_endpoint_network_policies" {
   description = "enable network policies for the private link endpoint on the subnet"
   type        = bool
   default     = false
 }
 
-variable "enforce_private_link_service_network_policies" {
+variable "private_link_service_network_policies_enabled" {
   description = "enable network policies for the private link service on the subnet"
   type        = bool
   default     = false
