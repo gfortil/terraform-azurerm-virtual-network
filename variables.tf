@@ -77,7 +77,7 @@ variable "subnet_defaults" {
   type = object({
     cidrs                                         = list(string)
     private_endpoint_network_policies             = string
-    private_link_service_network_policies_enabled = string
+    private_link_service_network_policies_enabled = bool
     service_endpoints                             = list(string)
     delegations = map(object({
       name    = string
@@ -94,7 +94,7 @@ variable "subnet_defaults" {
   default = {
     cidrs                                         = []
     private_endpoint_network_policies             = "Disabled"
-    private_link_service_network_policies_enabled = "Disabled"
+    private_link_service_network_policies_enabled = false
     service_endpoints                             = []
     delegations                                   = {}
     create_network_security_group                 = true
